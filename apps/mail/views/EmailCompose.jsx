@@ -76,11 +76,9 @@ export function EmailCompose() {
           value={content}
           onChange={handleSubjectChange}
         ></textarea>
-        <Link to="/mail">
-          <button className="send-button" type="button" onClick={handleSend}>
-            Send
-          </button>
-        </Link>
+        <button className="send-button" type="button" onClick={handleSend}>
+          Send
+        </button>
       </form>
     </section>
   );

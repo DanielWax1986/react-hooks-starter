@@ -16,7 +16,7 @@ export function MailPreview({ email }) {
   }
   return (
     <tr className={"email-preview " + isRead}>
-      <td>
+      <td className="from">
         <input
           value={email.isRead}
           onChange={handleReadCheckbox}
@@ -26,12 +26,12 @@ export function MailPreview({ email }) {
         />
         {email.from}
       </td>
-      <td>{email.subject}</td>
-      <td>
+      <td className="subject">{email.subject}</td>
+      <td className="content">
         <LongTxt txt={email.body} />
         {/* {email.body} */}
       </td>
-      <td>
+      <td className="date">
         {date.getDay() + "/" + date.getMonth() + "/" + date.getFullYear()}
       </td>
     </tr>
