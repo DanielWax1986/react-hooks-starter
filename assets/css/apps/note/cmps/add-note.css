@@ -1,0 +1,49 @@
+ /* note list */.add-note {
+    margin-bottom: 50px;
+}
+
+.note-input {
+    display: flex;
+    justify-content: center;
+}
+
+
+.note-input form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 6.5rem;
+    border-radius: 10px;
+    box-shadow: -2px 1px 4px 1px #b9aeae;
+    transition: box-shadow .4s;
+    border: 1px solid lightgray;
+}
+
+.note-input form:hover{
+    transition: box-shadow .4s;
+    box-shadow: -2px 1px 4px 1px #5e5858;
+}
+
+.add-note [name=add-note] {
+    border: none;
+    text-indent: 15px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.add-note .btns-input * {
+    cursor: pointer;
+    border: none;
+    font-size: 1.3rem;
+    background-color: white;
+    color: rgb(154, 146, 146);
+    margin-inline-end: 10px;
+}
+
+.add-note .btns-input *:hover {
+    color: rgb(21, 8, 8);
+    transition: color .5s;
+}
