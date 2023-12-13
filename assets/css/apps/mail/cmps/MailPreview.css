@@ -1,10 +1,28 @@
 /* Mail Preview*/
 
 .email-preview {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-inline: 10px;
 }
 
 .email-preview:hover {
+  border: 1px solid var(--main-bg-color);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.email-preview > td:last-child {
+  justify-self: end;
+}
+
+.email-preview > td {
+  align-self: center;
+  justify-self: start;
+}
+
+.read-email {
   background-color: var(--main-filter-color);
+
+  font-weight: 400;
+  color: var(--main-font-color);
 }

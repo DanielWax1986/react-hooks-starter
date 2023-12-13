@@ -1,5 +1,6 @@
 import { emailService } from "../services/mail.service.js";
 import { MailList } from "../cmps/MailList.jsx";
+const { Link } = ReactRouterDOM;
 
 const { useState, useEffect, useRef } = React;
 
@@ -20,7 +21,9 @@ export function MailIndex() {
   if (!emails) return <div>Loading...</div>;
   return (
     <section className="email-index">
-      <h1>Welcome to Mister Email!</h1>
+      <button>
+        <Link to="/email/compose">Compose</Link>
+      </button>
       <MailList emails={emails} />
     </section>
   );

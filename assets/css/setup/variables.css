@@ -1,13 +1,17 @@
 :root {
-  --main-bg-color: rgb(15, 247, 34);
+  --main-bg-color: #e4e4e4;
 
-  --color-1: #aed2ff; /* search mail input, hover on icons */
+  --color-2: #f3f8ff;
+
+  --color-1: #c3ddfc; /* search mail input, hover on icons */
+  --main-btn-color: #a0e9ff;
+  --secondary-btn-color: #cdf5fd;
 
   --main-filter-color: #dde6ed; /* filter email btns, bgc email icons, search email input bgc ???? */
   --main-filter-color1: #f5ebeb; /* filter email btns, bgc email icons, search email input bgc ???? */
 
   --main-font-color: #434242; /* font colot and icons color  ???? */
-  --main-font-color: #222222; /* font colot and icons color  ????*/
+  --secondary-font-color: #191919; /* font colot and icons color  ???? */
 
   --send-mail-btn: #1640d6; /* new email btn and send email btn */
 

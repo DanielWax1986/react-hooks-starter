@@ -1,5 +1,23 @@
 /* mail index  */
 
 .email-index {
+  padding-block-start: 5px;
+
   font-size: 1.5rem;
+  color: var(--main-font-color);
+
+  font-weight: 900;
+}
+
+.email-index > button {
+  padding: 20px;
+  font-size: 0.8em;
+  background-color: var(--main-btn-color);
+  border: none;
+  border-radius: 15px;
+}
+
+.email-index > button:hover {
+  cursor: pointer;
+  background-color: var(--secondary-btn-color);
 }

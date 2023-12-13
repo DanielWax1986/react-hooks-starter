@@ -1,4 +1,6 @@
 /* mail list */
 
 .mail-list {
+  width: 100%;
+  background-color: #ffffffff;
 }
