@@ -3,20 +3,22 @@
 import { utilService } from "../../../services/util.service.js";
 import { storageService } from "../../../services/async-storage.service.js";
 import { localStorageService } from "../../../services/storage.service.js";
+import { emailJson } from "./emails.json.js";
+
+const EMAIL_KEY = "emailDB";
+_createEmails();
 
 export const emailService = {
   query,
+  get,
+  remove,
+  save,
+  getEmptyEmail,
+  getUser,
 };
 
-const EMAIL_KEY = "emailDB";
-
-const loggedinUser = {
-  email: "user@appsus.com",
-  fullname: "Mahatma Appsus",
-};
-
-function query(key) {
-  return storageService.query(key).then((entities) => {
+function query() {
+  return storageService.query(EMAIL_KEY).then((entities) => {
     //add filter later
     return entities;
   });
@@ -51,13 +53,20 @@ function getEmptyEmail(senderData, emailData) {
   };
 }
 
+function getUser() {
+  return {
+    email: "user@appsus.com",
+    fullname: "Mahatma Appsus",
+  };
+}
+
 // Private functions
 function _createEmails() {
   let emails = localStorageService.loadFromStorage(EMAIL_KEY);
 
   if (!emails || !emails.length) {
-    emails = bookJson();
-    localStorageService.saveToStorage(BOOK_KEY, books);
+    emails = emailJson();
+    localStorageService.saveToStorage(EMAIL_KEY, emails);
   }
 }
 
@@ -66,4 +75,6 @@ function _createEmail(senderData, emailData) {
   email.id = utilService.makeId();
 
   return email;
+
+  // May cause problems, fix later
 }
