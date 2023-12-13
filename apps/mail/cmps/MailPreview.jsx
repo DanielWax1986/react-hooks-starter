@@ -1,10 +1,10 @@
 export function MailPreview({ email }) {
   return (
-    <article className="email-preview">
-      <h4>{email.from}</h4>
-      <h4>{email.subject}</h4>
-      <p>{email.body}</p>
+    <tr className="email-preview">
+      <td>{email.from}</td>
+      <td>{email.subject}</td>
+      <td>{email.body}</td>
       {/* <p>{email.sentAt}</p> */}
-    </article>
+    </tr>
   );
 }
