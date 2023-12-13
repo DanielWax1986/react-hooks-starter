@@ -1,10 +1,10 @@
 :root {
   --main-bg-color: rgb(15, 247, 34);
 
-  --main-input-color: #aed2ff; /* search mail input, hover on icons */
+  --color-1: #aed2ff; /* search mail input, hover on icons */
 
   --main-filter-color: #dde6ed; /* filter email btns, bgc email icons, search email input bgc ???? */
-  --main-filter-color: #f5ebeb; /* filter email btns, bgc email icons, search email input bgc ???? */
+  --main-filter-color1: #f5ebeb; /* filter email btns, bgc email icons, search email input bgc ???? */
 
   --main-font-color: #434242; /* font colot and icons color  ???? */
   --main-font-color: #222222; /* font colot and icons color  ????*/

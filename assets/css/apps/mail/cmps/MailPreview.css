@@ -1,0 +1,10 @@
+/* Mail Preview*/
+
+.email-preview {
+  display: flex;
+  justify-content: space-between;
+}
+
+.email-preview:hover {
+  background-color: var(--main-filter-color);
+}

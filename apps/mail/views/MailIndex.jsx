@@ -20,7 +20,7 @@ export function MailIndex() {
   if (!emails) return <div>Loading...</div>;
   return (
     <section className="email-index">
-      <h1>Welcome to MisterEmail!</h1>
+      <h1>Welcome to Mister Email!</h1>
       <MailList emails={emails} />
     </section>
   );
