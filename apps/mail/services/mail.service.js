@@ -6,15 +6,19 @@ import { localStorageService } from "../../../services/storage.service.js";
 import { emailJson } from "./emails.json.js";
 
 const EMAIL_KEY = "emailDB";
+const LOGGED_USER = "loggedUser";
 _createEmails();
+saveLogInUser(getUser());
 
 export const emailService = {
   query,
+  getLoggedInUser,
   get,
   remove,
   save,
   getEmptyEmail,
   getUser,
+  saveLogInUser,
 };
 
 function query() {
@@ -32,24 +36,24 @@ function remove(key, emailId) {
   return storageService.remove(key, emailId);
 }
 
-function save(key, entity) {
+function save(entity) {
   if (entity.id) {
-    return storageService.put(key, entity);
+    return storageService.put(EMAIL_KEY, entity);
   } else {
-    return storageService.post(key, entity);
+    return storageService.post(EMAIL_KEY, entity);
   }
 }
 
-function getEmptyEmail(senderData, emailData) {
+function getEmptyEmail() {
   return {
     id: "",
-    subject: emailData.subject,
-    body: emailData.body,
+    subject: "",
+    body: "",
     isRead: false,
-    sentAt: emailData.date,
+    sentAt: "",
     removedAt: null,
-    from: senderData.from,
-    to: senderData.to,
+    from: "",
+    to: "",
   };
 }
 
@@ -60,6 +64,23 @@ function getUser() {
   };
 }
 
+function getLoggedInUser() {
+  return localStorageService.loadFromStorage(LOGGED_USER);
+}
+
+function saveLogInUser(user) {
+  localStorageService.saveToStorage(LOGGED_USER, user);
+}
+
+function createEmail(senderData, emailData) {
+  const email = getEmptyEmail();
+  email.id = utilService.makeId();
+
+  return email;
+
+  // May cause problems, fix later
+}
+
 // Private functions
 function _createEmails() {
   let emails = localStorageService.loadFromStorage(EMAIL_KEY);
@@ -68,13 +89,4 @@ function _createEmails() {
     emails = emailJson();
     localStorageService.saveToStorage(EMAIL_KEY, emails);
   }
-}
-
-function _createEmail(senderData, emailData) {
-  const email = getEmptyEmail(senderData, emailData);
-  email.id = utilService.makeId();
-
-  return email;
-
-  // May cause problems, fix later
 }
