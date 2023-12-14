@@ -1,14 +1,24 @@
-export class NoteImg extends React.Component {
+import { noteService } from "../services/note.service.js"
 
-    state = {
-        url: this.props.url,
-        title: this.props.note.info.title
+const { useState, useEffect, useRef } = React
+
+export function NoteImg({ note, onSaveNote }) {
+
+    const [file, setFile] = useState();
+
+    const titleRef = useRef(null)
+
+    function changeContentTitle(ev) {
+        note.info.title = titleRef.current.innerText
+        noteService.save(note)
+        console.log('contentRef.current.innerText', titleRef.current.innerText);
+
     }
 
-    render() {
-        const { url, title } = this.state
-        return <section className="note-img">
-            <img src={url} alt={title} />
-        </section>
-    }
+    return <section className="note-img css-fix">
+
+        <h3 ref={titleRef} onKeyUp={(ev) => changeContentTitle(ev)} contentEditable={true} suppressContentEditableWarning={true}>{note.info.title}</h3>
+        <img src={note.info.img} alt={note.info.title} />
+
+    </section>
 }

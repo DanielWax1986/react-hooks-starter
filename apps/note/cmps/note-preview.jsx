@@ -1,97 +1,83 @@
-import { NoteImg } from './note-img.jsx'
-import { NoteTodos } from './note-todos.jsx'
-import { NoteTxt } from './note-txt.jsx'
-import { noteService } from '../services/note.service.js'
-import { UserBtns } from './user-btns.jsx'
-import { NoteCanvas } from './note-canvas.jsx'
+
+const { useState, useEffect, useRef } = React
+const { Link, useNavigate, useParams } = ReactRouterDOM
+
+import { noteService } from "../services/note.service.js";
+import { NoteImg } from "./note-img.jsx";
+import { NoteTodos } from "./note-todos.jsx";
+import { NoteTxt } from "./note-txt.jsx";
 
 
+export function NotePreview({ note, onRemoveNote, onSaveNote, onEditNote }) {
 
-export class NotePreview extends React.Component {
-    state = {
-        note: null
+    const [isShown, setIsShown] = useState(false)
+    const [color, setColor] = useState(noteService.get(note.id))
+    const [content, setContent] = useState(null)
+
+    const colorRef = useRef(null)
+    const contentRef = useRef(null)
+
+    useEffect(() => {
+        loadNotes()
+    }, [color, colorRef, content, contentRef])
+
+    function loadNotes() {
+        noteService.query().then(notes => {
+        })
+
     }
 
-    componentDidMount() {
-        this.loadNote()
-    }
+    function noteType() {
+        if (note.type === 'text') {
+            return <NoteTxt note={note} onEditNote={onEditNote} />
 
-    loadNote = () => {
-        const noteId = this.props.note.id
-        noteService.getNoteById(noteId)
-            .then(note => { this.setState({ note }) })
-    }
+        } else if (note.type === 'file') {
+            return <NoteImg note={note} onSaveNote={onSaveNote} />
 
-    onChangeTxt = (textContent, noteId, noteType, todoId) => {
-        if (noteType === 'note-txt') {
-            noteService.editTxt(textContent, noteId)
-                .then(() => this.loadNote())
-        } else if ((noteType === 'note-todos')) {
-         
-            noteService.editTodo(textContent, noteId, todoId)
-                .then(() => this.loadNote())
+        } else if (note.type === 'note-todos') {
+            return <NoteTodos note={note} />
+
+        } else if (note.type === 'url') {
+            return 
         }
     }
 
-    onAddTodo = (todo, noteId) => {
-        noteService.addTodo(todo, noteId)
-            .then(() => this.loadNote())
+    function handleChange({ target }) {
+        let { value, type, name: field } = target
+        if (type === 'color') value = { ...note.style, backgroundColor: value }
+        setColor((prevColor) => ({ ...prevColor, [field]: value }))
+        colorRef.current.style.backgroundColor = value
     }
 
-    onChangeColor = (backgroundColor, noteId) => {
-        noteService.changeNoteColor(backgroundColor, noteId)
-            .then(() => this.loadNote())
+    function changeColor(ev) {
+        ev.preventDefault()
+        colorRef.current.style.backgroundColor = color.style.backgroundColor
+        note.style.backgroundColor = color.style.backgroundColor
+
+        noteService.save(note).then((color) => {
+        })
+
     }
 
-    onTodoIsDone = (checked, todoId, noteId) => {
+    return <article ref={colorRef} className="note-preview" style={{ backgroundColor: note.style.backgroundColor }}>
 
-        noteService.todoIsDone(checked, todoId, noteId)
-            .then(() => this.loadNote())
-    }
+        {<div>
+            {noteType()}
 
-    onRemoveTodo = (todoId, noteId) => {
-        noteService.removeTodo(todoId, noteId)
-            .then(() => this.loadNote())
-    }
+        </div>}
+        <div className="hidden-buttons">
+            <form className="tooltip" onChange={changeColor}>
+                <label htmlFor={`color-${note.id}`}><img src="./assets/img/icons/icons-notes/asset 22.svg" alt="" /><span className="tooltiptext">Color</span></label>
+                <input type="color"
+                    name="style"
+                    id={`color-${note.id}`}
+                    value={note.backgroundColor}
+                    onChange={handleChange}
 
+                />
+            </form>
+            <button className="tooltip" onClick={() => onRemoveNote(note.id)}><img src="./assets/img/icons/icons-notes/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="" /><span className="tooltiptext">Delete</span></button>
+        </div>
 
-    render() {
-        const { note } = this.state
-        if (!note) return
-        const { onRemoveNote, onAddNote, onChangeNotePin } = this.props
-        const { txt, url, title } = note.info
-        const { backgroundColor } = note
-        const { onChangeTxt, onChangeColor, onAddTodo,
-            onTodoIsDone, onRemoveTodo } = this
-        function DynamicCmp() {
-            switch (note.type) {
-                case 'note-txt':
-                    return <NoteTxt onChangeTxt={onChangeTxt} note={note} txt={txt} title={title} />
-                case 'note-img':
-                    return <NoteImg note={note} url={url} />
-                case 'note-todos':
-                    return <NoteTodos note={note} onAddTodo={onAddTodo}
-                        onChangeTxt={onChangeTxt}
-                        onTodoIsDone={onTodoIsDone}
-                        onRemoveTodo={onRemoveTodo} />
-                case 'note-video':
-                    return <NoteVideo note={note} url={url} />
-                case 'note-canvas':
-                    return <NoteCanvas note={note}/>
-                case 'note-map':
-                    return <NoteMap note={note}/>
-            }
-        }
-
-        return <section className="note-preview" style={{ backgroundColor }} >
-
-            <DynamicCmp />
-            <UserBtns note={note}
-                onChangeColor={onChangeColor}
-                onRemoveNote={onRemoveNote}
-                onAddNote={onAddNote}
-                onChangeNotePin={onChangeNotePin}
-            />
-        </section>
-    }
+    </article>
 }

@@ -5,7 +5,7 @@ import { AppHeader } from "./cmps/AppHeader.jsx";
 import { About } from "./views/About.jsx";
 import { Home } from "./views/Home.jsx";
 import { MailIndex } from "./apps/mail/views/MailIndex.jsx";
-import { NoteIndex } from "./apps/note/views/NoteIndex.jsx";
+import { NoteIndex } from "./apps/note/views/note-index.jsx";
 import { EmailCompose } from "./apps/mail/views/EmailCompose.jsx";
 
 export function App() {
