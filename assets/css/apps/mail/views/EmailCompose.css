@@ -44,16 +44,17 @@
   cursor: pointer;
 }
 
+.header-compose > button:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.2s linear;
+}
+
 .header-compose > h1 {
   margin: 0;
   padding-inline: 10px;
   margin-inline-end: 20px;
   font-size: 1.5em;
   color: #333;
-}
-
-.header-compose > button:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .main-compose {

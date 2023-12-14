@@ -22,10 +22,6 @@ export function MailIndex() {
       .catch((err) => console.log("err:", err));
   }
 
-  function onSetFilter(filterBy) {
-    setFilterBy(filterBy);
-  }
-
   const { subject, content, isRead } = filterBy;
 
   if (!emails) return <div>Loading...</div>;
@@ -36,7 +32,7 @@ export function MailIndex() {
       </button>
       <MailFilter filterBy={filterBy} setFilterBy={setFilterBy} />
 
-      <MailList emails={emails} />
+      <MailList emails={emails} setEmails={setEmails} />
       <Outlet />
     </section>
   );

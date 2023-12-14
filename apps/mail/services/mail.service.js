@@ -24,6 +24,8 @@ export const emailService = {
   getFilterBy,
   setFilterBy,
   filterByRead,
+  getNextEmailIdx,
+  getDate,
 };
 
 function query() {
@@ -54,12 +56,17 @@ function myConcat(arr1, arr2) {
   return arr1.concat(uniqueEntities);
 }
 
-function get(key, emailId) {
-  return storageService.get(key, emailId);
+function get(emailId) {
+  return storageService.get(EMAIL_KEY, emailId);
 }
 
-function remove(key, emailId) {
-  return storageService.remove(key, emailId);
+function remove(emailId) {
+  return storageService.remove(EMAIL_KEY, emailId);
+}
+
+function getDate(dateNum) {
+  const date = new Date(dateNum);
+  return date.getDay() + "/" + date.getMonth() + "/" + date.getFullYear();
 }
 
 function save(entity) {
@@ -129,6 +136,14 @@ function setFilterBy(filterBy = {}) {
   if (filterBy.content !== undefined) gFilterBy.content = filterBy.content;
   if (filterBy.isRead !== undefined) gFilterBy.isRead = filterBy.isRead;
   return gFilterBy;
+}
+
+function getNextEmailIdx(emailId) {
+  return storageService.query(EMAIL_KEY).then((emails) => {
+    let nextEmailIdx = emails.findIndex((email) => email.id === emailId) + 1;
+    if (nextEmailIdx === emails.length) nextEmailIdx = 0;
+    return emails[nextEmailIdx].id;
+  });
 }
 
 // Private functions
