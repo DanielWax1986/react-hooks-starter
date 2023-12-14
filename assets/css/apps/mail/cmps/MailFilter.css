@@ -1,1 +1,40 @@
+.mail-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 
+.mail-filter input {
+  flex-grow: 1;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.8em;
+}
+
+.mail-filter select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.mail-filter input::placeholder {
+  color: #aaa;
+}
+
+.mail-filter select option {
+  background-color: #fff;
+}
+
+.mail-filter select {
+  /* appearance: none; */
+  background-color: #fff;
+  padding-right: 25px;
+}

@@ -3,4 +3,5 @@
 .mail-list {
   width: 100%;
   background-color: #ffffffff;
+  float: right;
 }

@@ -31,10 +31,10 @@ export function MailIndex() {
   if (!emails) return <div>Loading...</div>;
   return (
     <section className="email-index">
-      <MailFilter filterBy={filterBy} setFilterBy={setFilterBy} />
       <button>
-        <Link to="compose">Compose</Link>
+        <Link to="compose">New Email</Link>
       </button>
+      <MailFilter filterBy={filterBy} setFilterBy={setFilterBy} />
 
       <MailList emails={emails} />
       <Outlet />

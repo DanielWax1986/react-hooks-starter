@@ -11,14 +11,24 @@
 }
 
 .email-index > button {
-  padding: 20px;
-  font-size: 0.8em;
-  background-color: var(--main-btn-color);
+  background-color: var(--send-mail-btn);
+  color: white;
+  padding: 12px 24px;
+  font-size: 0.9em;
+  font-weight: 500;
   border: none;
-  border-radius: 15px;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .email-index > button:hover {
-  cursor: pointer;
-  background-color: var(--secondary-btn-color);
+  background-color: #2980b9;
+}
+
+.email-index > button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
 }
