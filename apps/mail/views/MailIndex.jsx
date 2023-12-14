@@ -7,10 +7,12 @@ const { useState, useEffect, useRef } = React;
 
 export function MailIndex() {
   const [emails, setEmails] = useState(null);
+  const [filterBy, setFilterBy] = useState(emailService.getDefaultFilter());
 
   useEffect(() => {
+    emailService.setFilterBy(filterBy);
     loadEmails();
-  }, []);
+  }, [filterBy]);
 
   function loadEmails() {
     emailService
@@ -19,13 +21,20 @@ export function MailIndex() {
       .catch((err) => console.log("err:", err));
   }
 
+  function onSetFilter(filterBy) {
+    setFilterBy(filterBy);
+  }
+
+  const { subject, content, isRead } = filterBy;
+
   if (!emails) return <div>Loading...</div>;
   return (
     <section className="email-index">
+      <MailFilter filterBy={filterBy} setFilterBy={setFilterBy} />
       <button>
         <Link to="/email/compose">Compose</Link>
       </button>
-      <MailFilter />
+
       <MailList emails={emails} />
     </section>
   );

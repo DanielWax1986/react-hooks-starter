@@ -29,7 +29,6 @@ export function MailPreview({ email }) {
       <td className="subject">{email.subject}</td>
       <td className="content">
         <LongTxt txt={email.body} />
-        {/* {email.body} */}
       </td>
       <td className="date">
         {date.getDay() + "/" + date.getMonth() + "/" + date.getFullYear()}

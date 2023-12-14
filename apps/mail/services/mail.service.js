@@ -7,6 +7,7 @@ import { emailJson } from "./emails.json.js";
 
 const EMAIL_KEY = "emailDB";
 const LOGGED_USER = "loggedUser";
+var gFilterBy = { subject: "", content: "", isRead: "" };
 _createEmails();
 saveLogInUser(getUser());
 
@@ -19,13 +20,40 @@ export const emailService = {
   getEmptyEmail,
   getUser,
   saveLogInUser,
+  getDefaultFilter,
+  getFilterBy,
+  setFilterBy,
+  filterByRead,
 };
 
 function query() {
   return storageService.query(EMAIL_KEY).then((entities) => {
-    //add filter later
+    console.log(gFilterBy);
+
+    var contentFilter = [];
+
+    if (gFilterBy.content) {
+      const regex = new RegExp(gFilterBy.content, "i");
+      contentFilter = entities.filter((entity) => regex.test(entity.body));
+    }
+    if (gFilterBy.subject) {
+      const regex = new RegExp(gFilterBy.subject, "i");
+      entities = entities.filter((entity) => regex.test(entity.subject));
+    }
+
+    entities = myConcat(contentFilter, entities);
+
+    entities = filterByRead(entities);
+
     return entities;
   });
+}
+
+function myConcat(arr1, arr2) {
+  const idsInArr1 = new Set(arr1.map((entity) => entity.id));
+  const uniqueEntities = arr2.filter((entity) => !idsInArr1.has(entity.id));
+
+  return arr1.concat(uniqueEntities);
 }
 
 function get(key, emailId) {
@@ -79,6 +107,30 @@ function createEmail(senderData, emailData) {
   return email;
 
   // May cause problems, fix later
+}
+
+function filterByRead(emails) {
+  if (gFilterBy.isRead === "All") return emails;
+  else if (gFilterBy.isRead === "Read") {
+    return emails.filter((email) => email.isRead === true);
+  } else {
+    return emails.filter((email) => email.isRead === false);
+  }
+}
+
+function getDefaultFilter() {
+  return { subject: "", content: "", isRead: "All" };
+}
+
+function getFilterBy() {
+  return { ...gFilterBy };
+}
+
+function setFilterBy(filterBy = {}) {
+  if (filterBy.subject !== undefined) gFilterBy.subject = filterBy.subject;
+  if (filterBy.content !== undefined) gFilterBy.content = filterBy.content;
+  if (filterBy.isRead !== undefined) gFilterBy.isRead = filterBy.isRead;
+  return gFilterBy;
 }
 
 // Private functions
