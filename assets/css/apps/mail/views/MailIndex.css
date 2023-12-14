@@ -1,6 +1,7 @@
 /* mail index  */
 
 .email-index {
+  position: relative;
   padding-block-start: 5px;
 
   font-size: 1.5rem;

@@ -1,8 +1,9 @@
-* {
+/* * {
   padding: 0px;
-}
+} */
 
 .compose {
+  position: relative;
   font-size: 1.9rem;
   color: var(--main-font-color);
 }
@@ -101,4 +102,13 @@
 
 .send-button:hover {
   background-color: #45a049;
+}
+
+@media (max-width: 860px) {
+  .mail-list {
+    z-index: 1;
+  }
+  .compose {
+    z-index: 2;
+  }
 }

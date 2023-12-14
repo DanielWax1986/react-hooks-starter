@@ -1,7 +1,8 @@
 import { emailService } from "../services/mail.service.js";
 import { MailList } from "../cmps/MailList.jsx";
 import { MailFilter } from "../cmps/MailFilter.jsx";
-const { Link } = ReactRouterDOM;
+const { Link, Outlet } = ReactRouterDOM;
+import { EmailCompose } from "./EmailCompose.jsx";
 
 const { useState, useEffect, useRef } = React;
 
@@ -32,10 +33,11 @@ export function MailIndex() {
     <section className="email-index">
       <MailFilter filterBy={filterBy} setFilterBy={setFilterBy} />
       <button>
-        <Link to="/email/compose">Compose</Link>
+        <Link to="compose">Compose</Link>
       </button>
 
       <MailList emails={emails} />
+      <Outlet />
     </section>
   );
 }

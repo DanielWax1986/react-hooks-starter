@@ -16,7 +16,7 @@ export function MailFilter({ filterBy, setFilterBy }) {
   }
 
   return (
-    <section className="mail-filter">
+    <section className="menu-icon">
       <input
         value={filterBy.subject}
         onChange={(e) => {
