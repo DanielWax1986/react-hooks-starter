@@ -28,8 +28,6 @@ export const emailService = {
 
 function query() {
   return storageService.query(EMAIL_KEY).then((entities) => {
-    console.log(gFilterBy);
-
     var contentFilter = [];
 
     if (gFilterBy.content) {

@@ -1,24 +1,32 @@
 import { LongTxt } from "../cmps/LongTxt.jsx";
 const { useState, useEffect } = React;
+import { emailService } from "../services/mail.service.js";
 
 export function MailPreview({ email }) {
   const [isRead, setIsRead] = useState("");
 
   const date = new Date(email.sentAt);
 
-  function handleReadCheckbox({ target }) {
-    const value = target.value;
+  useEffect(() => {
+    if (email.isRead === true) {
+      setIsRead("read-email");
+    } else setIsRead("");
+  }, []);
+
+  function handleReadCheckbox() {
     email.isRead = !email.isRead;
+    emailService.save(email);
 
     if (email.isRead === true) {
       setIsRead("read-email");
     } else setIsRead("");
   }
+
   return (
     <tr className={"email-preview " + isRead}>
       <td className="from">
         <input
-          value={email.isRead}
+          checked={email.isRead}
           onChange={handleReadCheckbox}
           type="checkBox"
           id="isRead"
