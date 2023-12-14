@@ -19,7 +19,6 @@ export function MailDetails({ emailId }) {
       .catch((err) => console.log("err:", err));
   }
 
-  console.log(emailId);
   if (!email) return <div>Loading...</div>;
 
   return (
@@ -27,8 +26,8 @@ export function MailDetails({ emailId }) {
       <div className="email-details-header">
         <h1>{email.subject}</h1>
         <div>{emailService.getDate(email.sentAt)}</div>
-        <h4>{email.from}</h4>
-        <div>{email.to}</div>
+        <h4>From: {email.from}</h4>
+        <div>{"<" + email.to + ">"}</div>
       </div>
       <div className="email-details-body">
         <p>{email.body}</p>

@@ -22,6 +22,11 @@ export function MailPreview({ email, onRemoveMail }) {
     } else setIsRead("");
   }
 
+  function setAsRead() {
+    email.isRead = true;
+    emailService.save(email);
+  }
+
   return (
     <tr className={"email-preview " + isRead}>
       <td className="from">
@@ -46,9 +51,11 @@ export function MailPreview({ email, onRemoveMail }) {
         <button onClick={() => onRemoveMail(email.id)} className="remove-btn">
           <i className="fa-regular fa-trash-can"></i>
         </button>
-        <Link to={`/details/${email.id}`}>
-          <i className="fa-regular fa-eye"></i>
-        </Link>
+        <span onClick={setAsRead}>
+          <Link to={`/details/${email.id}`}>
+            <i className="fa-regular fa-eye"></i>
+          </Link>
+        </span>
       </td>
     </tr>
   );
