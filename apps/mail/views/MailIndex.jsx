@@ -32,10 +32,10 @@ export function MailIndex() {
       <div className="index-toolbar">
         <button className="compose-btn">
           <Link to="compose">
-            <i class="fa-solid fa-pencil"> Compose</i>
+            <i className="fa-solid fa-pencil"> Compose</i>
           </Link>
         </button>
-        <EmailFolderList />
+        <EmailFolderList emails={emails} setEmails={setEmails} />
       </div>
       <div className="index-body">
         <MailFilter filterBy={filterBy} setFilterBy={setFilterBy} />

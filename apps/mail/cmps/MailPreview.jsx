@@ -6,12 +6,16 @@ const { useParams, useNavigate, Link } = ReactRouterDOM;
 
 export function MailPreview({ email, onRemoveMail }) {
   const [isRead, setIsRead] = useState("");
+  const [isImportant, setIsImportant] = useState("fa-regular fa-star");
   const navigate = useNavigate();
 
   useEffect(() => {
     if (email.isRead === true) {
       setIsRead("read-email");
     } else setIsRead("");
+    if (email.important) setIsImportant("fa-solid fa-star");
+
+    console.log(isImportant);
   }, []);
 
   function handleReadCheckbox() {
@@ -28,6 +32,13 @@ export function MailPreview({ email, onRemoveMail }) {
     emailService.save(email);
   }
 
+  function setImportant() {
+    email.important = !email.important;
+    setIsImportant(email.important ? "fa-solid fa-star" : "fa-regular fa-star");
+
+    emailService.save(email);
+  }
+
   return (
     <tr className={"email-preview " + isRead}>
       <td className="from">
@@ -38,8 +49,8 @@ export function MailPreview({ email, onRemoveMail }) {
           id="isRead"
           name="isRead"
         />
-        <button className="star-btn">
-          <i className="fa-regular fa-star"></i>
+        <button onClick={setImportant} className="star-btn">
+          <i className={isImportant}></i>
         </button>
         {email.from}
       </td>

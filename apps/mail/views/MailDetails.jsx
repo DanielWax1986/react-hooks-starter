@@ -37,7 +37,7 @@ export function MailDetails() {
         </button>
         <div className="email-opts">
           <button>
-            <i className="fa-regular fa-paper-plane"></i>
+            <i className="fa-solid fa-reply"></i>
           </button>
           <button onClick={onRemoveMail}>
             <i className="fa-regular fa-trash-can"></i>
