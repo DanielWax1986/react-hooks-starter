@@ -5,6 +5,8 @@
   grid-template-columns: min-content 1fr;
   padding-block-start: 5px;
 
+  gap: 20px;
+
   font-size: 1.5rem;
   color: var(--main-font-color);
 }
@@ -27,8 +29,8 @@
 }
 
 .compose-btn:hover {
-  background-color: #2980b9;
-  transition: background-color 0.3s ease;
+  background-color: rgb(101, 183, 65, 0.7);
+  transition: background-color 0.2s ease;
 }
 
 /* .email-index > button:hover {
@@ -37,7 +39,7 @@
 
 .compose-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
+  box-shadow: 1px 0 0 3px rgb(8, 2, 163, 0.9);
 }
 
 @media (max-width: 860px) {

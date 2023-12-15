@@ -11,6 +11,7 @@
 
 .tool-sidebar {
   padding: 10px;
+  border-right: 5px solid black;
 }
 
 .tool-sidebar button {
@@ -38,8 +39,8 @@
 }
 
 .tool-sidebar button:hover {
-  background-color: #ddd;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
 }
 
 @media (max-width: 860px) {

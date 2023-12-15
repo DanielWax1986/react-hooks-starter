@@ -1,1 +1,57 @@
- /* home */
+/* home */
+
+.home {
+  background-color: #f8f8f8;
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.home h1 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.home button {
+  border: none;
+  background-color: transparent;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.home i {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.home i:hover {
+  transform: rotate(180deg);
+}
+
+.square {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  display: inline-block;
+  border: #333 3px solid;
+}
+
+#square1 {
+  background-color: #85586f;
+}
+
+#square2 {
+  background-color: #c9bbcf;
+}
+
+#square3 {
+  background-color: #ceedc7;
+}
+
+#square4 {
+  background-color: #d2daff;
+}

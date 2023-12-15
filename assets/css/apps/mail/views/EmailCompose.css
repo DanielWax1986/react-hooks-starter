@@ -87,14 +87,15 @@
 }
 
 .send-button:hover {
-  background-color: #45a049;
+  background-color: rgb(101, 183, 65, 0.8);
+  transition: background-color 0.2s ease;
 }
 
-@media (max-width: 860px) {
+/* @media (max-width: 860px) {
   .mail-list {
     z-index: 1;
   }
   .compose {
     z-index: 2;
   }
-}
+} */

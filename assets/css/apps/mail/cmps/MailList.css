@@ -4,5 +4,6 @@
   width: 100%;
   background-color: #ffffffff;
   float: right;
-  border-left: 1px solid #ccc;
+  /* border: 1px solid var(--main-filter-color); */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }

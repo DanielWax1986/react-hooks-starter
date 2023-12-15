@@ -17,12 +17,24 @@
   font-size: 0.8em;
 }
 
+.mail-filter input:focus {
+  outline: none;
+  border-color: var(--send-mail-btn);
+  box-shadow: 0 0 5px rgba(77, 144, 254, 0.5);
+}
+
 .mail-filter select {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 10px;
   cursor: pointer;
   font-size: 0.8em;
+}
+
+.mail-filter select:focus {
+  outline: none;
+  border-color: var(--send-mail-btn);
+  box-shadow: 0 0 5px rgba(77, 144, 254, 0.5);
 }
 
 .mail-filter input::placeholder {

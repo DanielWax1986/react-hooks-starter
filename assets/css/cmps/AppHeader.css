@@ -1,4 +1,4 @@
-header {
+/* header {
   background: var(--color-2);
   border-bottom: 2px solid darkblue;
 }
@@ -21,4 +21,61 @@ nav a.active {
   color: darkblue;
   font-weight: bold;
   text-decoration: overline;
+} */
+
+header {
+  background: #dba39a;
+  border-bottom: 2px solid darkblue;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 2.5px;
+  font-size: 1.5rem;
+  padding: 20px;
+}
+
+.app-header h3 {
+  margin: 0;
+  color: white;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+nav a:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: darkblue;
+  transition: width 0.3s;
+}
+
+nav a:hover:after {
+  width: 100%;
+}
+
+nav a:active {
+  color: purple;
+}
+
+nav a.active {
+  color: darkblue;
+  font-weight: bold;
+}
+
+nav i {
+  margin-left: 5px;
 }
