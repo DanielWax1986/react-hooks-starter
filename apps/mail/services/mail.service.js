@@ -26,6 +26,7 @@ export const emailService = {
   filterByRead,
   getNextEmailIdx,
   getDate,
+  moveToTrash,
 };
 
 function query() {
@@ -47,6 +48,11 @@ function query() {
 
     return entities;
   });
+}
+
+function moveToTrash(email) {
+  email.removedAt = new Date();
+  return save(email);
 }
 
 function myConcat(arr1, arr2) {

@@ -2,10 +2,11 @@ import { LongTxt } from "../cmps/LongTxt.jsx";
 const { useState, useEffect } = React;
 import { emailService } from "../services/mail.service.js";
 import { MailDetails } from "../views/MailDetails.jsx";
-const { Link } = ReactRouterDOM;
+const { useParams, useNavigate, Link } = ReactRouterDOM;
 
 export function MailPreview({ email, onRemoveMail }) {
   const [isRead, setIsRead] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (email.isRead === true) {
@@ -48,10 +49,13 @@ export function MailPreview({ email, onRemoveMail }) {
       </td>
       <td className="date">
         {emailService.getDate(email.sentAt)}
-        <button onClick={() => onRemoveMail(email.id)} className="remove-btn">
+        <button className="reply-btn">
+          <i className="fa-solid fa-reply"></i>
+        </button>
+        <button onClick={() => onRemoveMail(email)} className="remove-btn">
           <i className="fa-regular fa-trash-can"></i>
         </button>
-        <span onClick={setAsRead}>
+        <span className="details-btn" onClick={setAsRead}>
           <Link to={`/details/${email.id}`}>
             <i className="fa-regular fa-eye"></i>
           </Link>

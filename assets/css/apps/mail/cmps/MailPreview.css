@@ -37,6 +37,32 @@
   transition: box-shadow 0.2s linear;
 }
 
+.reply-btn {
+  /* margin-left: 10px; */
+  padding: 7px;
+  font-size: 1em;
+  color: var(--main-font-color);
+  border: none;
+  background-color: transparent;
+  margin-inline: 10px;
+  cursor: pointer;
+}
+
+.details-btn {
+  padding: 7px;
+  font-size: 1em;
+  color: var(--main-font-color);
+  border: none;
+  background-color: transparent;
+  margin-inline: 10px;
+  cursor: pointer;
+}
+
+.details-btn:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.2s linear;
+}
+
 .star-btn {
   margin-left: 10px;
   padding: 7px;

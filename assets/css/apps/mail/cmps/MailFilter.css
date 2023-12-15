@@ -1,10 +1,10 @@
 .mail-filter {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   padding: 10px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: transparent;
+  border-bottom: 1px solid #ddd;
   border-radius: 5px;
 }
 
@@ -13,14 +13,14 @@
   padding: 8px;
   margin-right: 10px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 0.8em;
 }
 
 .mail-filter select {
   padding: 8px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 0.8em;
 }

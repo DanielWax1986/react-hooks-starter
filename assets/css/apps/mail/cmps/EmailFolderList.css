@@ -1,0 +1,64 @@
+.tool-sidebar > button {
+  padding: 7px;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: var(--main-font-color);
+  border: none;
+  background-color: var(--main-filter-color);
+  margin-inline: 10px;
+  cursor: pointer;
+}
+
+.tool-sidebar {
+  padding: 10px;
+}
+
+.tool-sidebar button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.tool-sidebar button span {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: calc(40px);
+  transform: translateY(-50%);
+}
+
+.tool-sidebar button:hover span {
+  display: inline-block;
+}
+
+.tool-sidebar button:hover {
+  background-color: #ddd;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 860px) {
+  .tool-sidebar {
+    display: flex;
+    align-items: center;
+  }
+
+  .tool-sidebar > button {
+    justify-self: center;
+  }
+
+  .tool-sidebar button {
+    text-align: center;
+  }
+
+  .tool-sidebar button span {
+    display: inline-block;
+    position: static;
+    margin-top: 20px;
+  }
+}

@@ -1,34 +1,47 @@
 /* mail index  */
 
 .email-index {
-  position: relative;
+  display: grid;
+  grid-template-columns: min-content 1fr;
   padding-block-start: 5px;
 
   font-size: 1.5rem;
   color: var(--main-font-color);
-
-  font-weight: 900;
 }
 
-.email-index > button {
+.index-toolbar {
+  text-align: center;
+}
+
+.compose-btn {
   background-color: var(--send-mail-btn);
   color: white;
   padding: 12px 24px;
-  font-size: 0.9em;
-  font-weight: 500;
+  font-size: 0.8em;
+  font-weight: bold;
   border: none;
-  border-radius: 60px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.email-index > button:hover {
+.compose-btn:hover {
   background-color: #2980b9;
+  transition: background-color 0.3s ease;
 }
 
-.email-index > button:focus {
+/* .email-index > button:hover {
+  background-color: #2980b9;
+} */
+
+.compose-btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
+}
+
+@media (max-width: 860px) {
+  .email-index {
+    grid-template-columns: 1fr; /* Change to a single column layout */
+  }
 }
