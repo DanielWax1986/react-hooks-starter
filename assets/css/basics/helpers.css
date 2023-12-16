@@ -21,3 +21,8 @@
 .grid {
     display: grid;
 }
+.container {
+    width: 80vw;
+    margin: auto;
+    padding-top: 20px;
+}

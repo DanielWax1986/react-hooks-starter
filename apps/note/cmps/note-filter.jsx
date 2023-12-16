@@ -27,7 +27,7 @@ export function NoteFilter({ onSetFilter }) {
 
     function onSearchClick() {
         console.log('you clicked search');
-        //here i need to put by types
+        
     }
 
     return <section className="note-filter">

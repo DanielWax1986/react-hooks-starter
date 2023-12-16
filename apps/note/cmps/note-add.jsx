@@ -13,7 +13,8 @@ export function NoteAdd({ notes, onAddNotes, onSaveNote }) {
     const videoRef = useRef(null);
     const imgRef = useRef(null);
 
-    function handleChange({ target }) {
+    function handleChange({ target }) { 
+
         let { value, type, name: field } = target
 
         if (type === 'text') value = { ...noteToAdd.info, txt: value }

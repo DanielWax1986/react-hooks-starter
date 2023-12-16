@@ -11,7 +11,9 @@
 
 /* Views */
 @import "./views/home.css";
+@import './views/About.css';
 @import "./apps/note/views/note-app.css";
+
 
 /* @import './apps/note/views/NoteIndex.css'; */
 

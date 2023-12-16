@@ -22,3 +22,7 @@ img {
   width: 100%;
   object-fit: cover;
 }
+
+.about-page {
+  margin: 0 15%;
+}

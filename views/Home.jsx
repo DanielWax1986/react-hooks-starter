@@ -3,7 +3,7 @@ import { localStorageService } from "../services/storage.service.js";
 
 export function Home() {
   const [backgroundColor, setBackgroundColor] = useState(
-    localStorageService.loadFromStorage("PAGE_COLOR")
+    localStorageService.loadFromStorage("PAGE_COLOR") || "#f6f8fc"
   );
   const [isAsideVisible, setAsideVisible] = useState(false);
 
