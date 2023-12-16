@@ -1,8 +1,10 @@
 const { Link } = ReactRouterDOM;
+import { localStorageService } from "../../../services/storage.service.js";
 
 export function ComposeToolbar({ setIsComposeShown }) {
+  const themeColor = localStorageService.loadFromStorage("PAGE_COLOR");
   return (
-    <div className="header-compose">
+    <div className="header-compose" style={{ backgroundColor: themeColor }}>
       <button
         onClick={() => {
           setIsComposeShown({ isShown: false, sendTo: "" });

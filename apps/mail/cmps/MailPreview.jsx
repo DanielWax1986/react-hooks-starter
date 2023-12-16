@@ -63,7 +63,7 @@ export function MailPreview({ email, onRemoveMail, setIsComposeShown }) {
         <LongTxt txt={email.body} />
       </td>
       <td className="date">
-        {emailService.getDate(email.sentAt)}
+        {email.sentAt && emailService.getDate(email.sentAt)}
         <button className="reply-btn" onClick={onToggleCompose}>
           <i className="fa-solid fa-reply"></i>
         </button>

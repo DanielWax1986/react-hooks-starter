@@ -25,6 +25,16 @@ export function EmailFolderList({ setEmails }) {
       .catch((err) => console.log("err:", err));
   }
 
+  // function draftFolder() {
+  //   emailService
+  //     .draftQuery()
+  //     .then((draftEmails) => {
+  //       console.log(draftEmails);
+  //       setEmails(draftEmails);
+  //     })
+  //     .catch((err) => console.log("err:", err));
+  // }
+
   function starredFolder() {
     emailService
       .query()
@@ -57,10 +67,10 @@ export function EmailFolderList({ setEmails }) {
         <i className="fa-regular fa-paper-plane"></i>
         <span>Sent</span>
       </button>
-      <button>
+      {/* <button onClick={draftFolder}>
         <i className="fa-regular fa-pen-to-square"></i>
         <span>Draft</span>
-      </button>
+      </button> */}
       <button onClick={starredFolder}>
         <i className="fa-solid fa-star"></i>
         <span>Starred</span>

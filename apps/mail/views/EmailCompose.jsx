@@ -1,8 +1,7 @@
-const { Link } = ReactRouterDOM;
-
 const { useState, useEffect } = React;
 import { ComposeToolbar } from "../cmps/ComposeToolbar.jsx";
 import { emailService } from "../services/mail.service.js";
+
 export function EmailCompose({ setIsComposeShown, sendTo }) {
   const [to, setTo] = useState(sendTo);
   const [title, setTitle] = useState("");
@@ -15,14 +14,15 @@ export function EmailCompose({ setIsComposeShown, sendTo }) {
   const handleSend = () => {
     if (!checkIfValid()) return;
 
-    const email = emailService.getEmptyEmail();
-    email.from = emailService.getLoggedInUser().email;
-    email.to = to;
-    email.subject = title;
-    email.body = content;
-    email.sentAt = Date.now();
+    const newEmail = {
+      from: emailService.getLoggedInUser().email,
+      to: to,
+      subject: title,
+      body: content,
+      sentAt: Date.now(),
+    };
 
-    emailService.save(email);
+    emailService.save(newEmail);
 
     setTo("");
     setTitle("");
@@ -42,7 +42,7 @@ export function EmailCompose({ setIsComposeShown, sendTo }) {
       alert("Please enter a title!");
       return false;
     } else if (!content) {
-      alert("Please enter a content!");
+      alert("Please enter content!");
       return false;
     }
     return true;

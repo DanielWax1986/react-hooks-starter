@@ -27,16 +27,18 @@
 }
 
 .tool-sidebar button span {
-  display: none;
-  position: absolute;
+  /* display: none; */
+  /* position: absolute; */
+  position: relative;
+  display: inline-block;
   top: 50%;
-  left: calc(40px);
-  transform: translateY(-50%);
+  left: calc(15px);
+  /* transform: translateY(-50%); */
 }
 
-.tool-sidebar button:hover span {
+/* .tool-sidebar button:hover span {
   display: inline-block;
-}
+} */
 
 .tool-sidebar button:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -58,7 +60,7 @@
   }
 
   .tool-sidebar button span {
-    display: inline-block;
+    /* display: inline-block; */
     position: static;
     margin-top: 20px;
   }

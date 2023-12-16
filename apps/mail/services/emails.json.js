@@ -41,7 +41,7 @@ const emails = [
     subject: "Udemy",
     body: "Would love to catch up sometimes",
     isRead: false,
-    sentAt: 1551133930594,
+    sentAt: 1451133130114,
     removedAt: null,
     from: "nadav@momo.com",
     to: "user@appsus.com",

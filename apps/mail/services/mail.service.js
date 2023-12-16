@@ -7,6 +7,7 @@ import { emailJson } from "./emails.json.js";
 
 const EMAIL_KEY = "emailDB";
 const LOGGED_USER = "loggedUser";
+const DRAFT_KEY = "draftDB";
 var gFilterBy = { subject: "", content: "", isRead: "" };
 _createEmails();
 saveLogInUser(getUser());
@@ -27,6 +28,8 @@ export const emailService = {
   getNextEmailIdx,
   getDate,
   moveToTrash,
+  saveDraft,
+  draftQuery,
 };
 
 function query() {
@@ -48,6 +51,10 @@ function query() {
 
     return entities;
   });
+}
+
+function draftQuery() {
+  return storageService.query(DRAFT_KEY);
 }
 
 function moveToTrash(email) {
@@ -80,6 +87,14 @@ function save(entity) {
     return storageService.put(EMAIL_KEY, entity);
   } else {
     return storageService.post(EMAIL_KEY, entity);
+  }
+}
+
+function saveDraft(entity) {
+  if (entity.id) {
+    return storageService.put(DRAFT_KEY, entity);
+  } else {
+    return storageService.post(DRAFT_KEY, entity);
   }
 }
 

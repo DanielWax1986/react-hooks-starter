@@ -2,11 +2,24 @@ const { useParams, useNavigate, Link } = ReactRouterDOM;
 import { emailService } from "../services/mail.service.js";
 const { useState, useEffect } = React;
 import { EmailFolderList } from "../cmps/EmailFolderList.jsx";
+import { EmailCompose } from "./EmailCompose.jsx";
 
 export function MailDetails() {
   const [email, setEmail] = useState(null);
   const { emailId } = useParams();
   const navigate = useNavigate();
+  const [isComposeShown, setIsComposeShown] = useState({
+    isShown: false,
+    sendTo: "",
+  });
+
+  function onToggleCompose() {
+    setIsComposeShown((prev) => ({
+      ...prev,
+      isShown: !prev.isShown,
+      sendTo: email.from,
+    }));
+  }
 
   useEffect(() => {
     loadEmail();
@@ -36,7 +49,7 @@ export function MailDetails() {
           <i onClick={onBack} className="fa-solid fa-arrow-left"></i>
         </button>
         <div className="email-opts">
-          <button>
+          <button onClick={onToggleCompose}>
             <i className="fa-solid fa-reply"></i>
           </button>
           <button onClick={onRemoveMail}>
@@ -52,6 +65,12 @@ export function MailDetails() {
           <span>{"<" + email.to + ">"}</span>
         </div>
       </div>
+      {isComposeShown.isShown && (
+        <EmailCompose
+          setIsComposeShown={setIsComposeShown}
+          sendTo={email.from}
+        />
+      )}
       <div className="email-details-body">
         <p>{email.body}</p>
       </div>

@@ -8,8 +8,8 @@ export function LongTxt({ txt }) {
   }
 
   function getTxtToShow(isLongTxtShown, txt) {
-    if (txt.length < 30) return txt;
-    return isLongTxtShown ? txt : txt.substring(0, 30) + "...";
+    if (txt.length < 25) return txt;
+    return isLongTxtShown ? txt : txt.substring(0, 25) + "...";
   }
 
   const txtToShow = getTxtToShow(isLongTxtShown, txt);
@@ -17,7 +17,7 @@ export function LongTxt({ txt }) {
     <section className="longTxt">
       <p>{txtToShow}</p>
       {
-        txt.length > 30
+        txt.length > 25
         // && (
         //   <button onClick={onToggleLongTxt}>
         //     {isLongTxtShown ? "Less..." : "More..."}

@@ -83,3 +83,19 @@ nav a.active {
 nav i {
   margin-left: 5px;
 }
+
+@media (max-width: 860px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
+}
