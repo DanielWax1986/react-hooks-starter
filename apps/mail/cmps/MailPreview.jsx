@@ -1,21 +1,25 @@
 import { LongTxt } from "../cmps/LongTxt.jsx";
 const { useState, useEffect } = React;
 import { emailService } from "../services/mail.service.js";
-import { MailDetails } from "../views/MailDetails.jsx";
-const { useParams, useNavigate, Link } = ReactRouterDOM;
+const { Link } = ReactRouterDOM;
 
-export function MailPreview({ email, onRemoveMail }) {
+export function MailPreview({ email, onRemoveMail, setIsComposeShown }) {
   const [isRead, setIsRead] = useState("");
   const [isImportant, setIsImportant] = useState("fa-regular fa-star");
-  const navigate = useNavigate();
+
+  function onToggleCompose() {
+    setIsComposeShown((prev) => ({
+      ...prev,
+      sendTo: email.from,
+      isShown: !prev.isShown,
+    }));
+  }
 
   useEffect(() => {
     if (email.isRead === true) {
       setIsRead("read-email");
     } else setIsRead("");
     if (email.important) setIsImportant("fa-solid fa-star");
-
-    console.log(isImportant);
   }, []);
 
   function handleReadCheckbox() {
@@ -60,7 +64,7 @@ export function MailPreview({ email, onRemoveMail }) {
       </td>
       <td className="date">
         {emailService.getDate(email.sentAt)}
-        <button className="reply-btn">
+        <button className="reply-btn" onClick={onToggleCompose}>
           <i className="fa-solid fa-reply"></i>
         </button>
         <button onClick={() => onRemoveMail(email)} className="remove-btn">

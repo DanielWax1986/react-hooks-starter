@@ -1,7 +1,10 @@
 const { useState, useEffect } = React;
+import { localStorageService } from "../services/storage.service.js";
 
 export function Home() {
-  const [backgroundColor, setBackgroundColor] = useState("#f8f8f8");
+  const [backgroundColor, setBackgroundColor] = useState(
+    localStorageService.loadFromStorage("PAGE_COLOR")
+  );
   const [isAsideVisible, setAsideVisible] = useState(false);
 
   const changeBgcTheme = () => {
@@ -11,6 +14,8 @@ export function Home() {
   const handleSquareClick = (color) => {
     setBackgroundColor(color);
     setAsideVisible(false);
+
+    localStorageService.saveToStorage("PAGE_COLOR", color);
   };
 
   return (

@@ -3,8 +3,8 @@ const { Link } = ReactRouterDOM;
 const { useState, useEffect } = React;
 import { ComposeToolbar } from "../cmps/ComposeToolbar.jsx";
 import { emailService } from "../services/mail.service.js";
-export function EmailCompose() {
-  const [to, setTo] = useState("");
+export function EmailCompose({ setIsComposeShown, sendTo }) {
+  const [to, setTo] = useState(sendTo);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -50,7 +50,7 @@ export function EmailCompose() {
 
   return (
     <section className="compose">
-      <ComposeToolbar />
+      <ComposeToolbar setIsComposeShown={setIsComposeShown} />
       <form className="main-compose">
         <input
           type="text"

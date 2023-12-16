@@ -23,15 +23,19 @@ nav a.active {
   text-decoration: overline;
 } */
 
-header {
-  background: #dba39a;
+/* header {
+  background-color: #dba39a;
   border-bottom: 2px solid darkblue;
-}
+} */
 
 .app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  background-color: #dba39a;
+  border-bottom: 2px solid darkblue;
+
   letter-spacing: 2.5px;
   font-size: 1.5rem;
   padding: 20px;

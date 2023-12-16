@@ -11,7 +11,7 @@
 
 .tool-sidebar {
   padding: 10px;
-  border-right: 5px solid black;
+  border-right: 1px solid darkblue;
 }
 
 .tool-sidebar button {

@@ -1,12 +1,14 @@
 const { Link } = ReactRouterDOM;
 
-export function ComposeToolbar() {
+export function ComposeToolbar({ setIsComposeShown }) {
   return (
     <div className="header-compose">
-      <button>
-        <Link to="/mail">
-          <i className="fa-solid fa-arrow-left"></i>
-        </Link>
+      <button
+        onClick={() => {
+          setIsComposeShown({ isShown: false, sendTo: "" });
+        }}
+      >
+        <i className="fa-solid fa-arrow-left"></i>
       </button>
       <h1>Compose</h1>
       <button>

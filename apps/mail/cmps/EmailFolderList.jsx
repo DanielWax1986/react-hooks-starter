@@ -2,7 +2,7 @@ import { emailService } from "../services/mail.service.js";
 const { useParams, useNavigate, Link } = ReactRouterDOM;
 
 export function EmailFolderList({ setEmails }) {
-  const navigate = useNavigate();
+  const user = emailService.getUser();
 
   function inboxFolder() {
     emailService
@@ -10,6 +10,17 @@ export function EmailFolderList({ setEmails }) {
       .then((emails) => {
         const myMails = emails.filter((email) => email.removedAt === null);
         setEmails(myMails);
+      })
+      .catch((err) => console.log("err:", err));
+  }
+
+  function sentFolder() {
+    emailService
+      .query()
+      .then((emails) => {
+        const sentEmails = emails.filter((email) => email.from === user.email);
+
+        setEmails(sentEmails);
       })
       .catch((err) => console.log("err:", err));
   }
@@ -42,9 +53,13 @@ export function EmailFolderList({ setEmails }) {
         <i className="fa-solid fa-inbox"></i>
         <span>Inbox</span>
       </button>
-      <button>
+      <button onClick={sentFolder}>
         <i className="fa-regular fa-paper-plane"></i>
         <span>Sent</span>
+      </button>
+      <button>
+        <i className="fa-regular fa-pen-to-square"></i>
+        <span>Draft</span>
       </button>
       <button onClick={starredFolder}>
         <i className="fa-solid fa-star"></i>
