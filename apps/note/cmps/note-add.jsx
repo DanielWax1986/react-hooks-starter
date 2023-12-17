@@ -51,10 +51,11 @@ export function NoteAdd({ notes, onAddNotes, onSaveNote }) {
                 ref={txtRef}
             />
 
-            {<button className="btn-txt tooltip" type="button" onClick={(ev) => { setType(ev, 'text') }}> <img src="./assets/img/icons/icons-notes/title_FILL0_wght400_GRAD0_opsz48.svg" alt="Text" /> <span className="tooltiptext">Text</span> </button>}
-            {<button className="btn-video tooltip" type="button" onClick={(ev) => { setType(ev, 'video') }}> <img src="./assets/img/icons/icons-notes/play_circle_FILL0_wght500_GRAD0_opsz48.svg" alt="Video" /> <span className="tooltiptext">Video</span></button>}
-            {<button className="btn-img tooltip" type="button" onClick={(ev) => { setType(ev, 'img') }}> <img src="./assets/img/icons/icons-notes/asset 11.svg" alt="Image" /><span className="tooltiptext">Image</span> </button>}
-
+            {<button className="btn-txt tooltip" type="button" onClick={(ev) => { setType(ev, 'text') }}> <img src="./assets/img/icons/abc.png" alt="Text" /> <span className="tooltiptext">Text</span> </button>}
+            {<button className="btn-video tooltip" type="button" onClick={(ev) => { setType(ev, 'video') }}> <img src="./assets/img/icons/youtube.png" alt="Video" /> <span className="tooltiptext">Video</span></button>}
+            {<button className="btn-img tooltip" type="button" onClick={(ev) => { setType(ev, 'img') }}> <img src="./assets/img/icons/picture.png" alt="Image" /><span className="tooltiptext">Image</span> </button>}
+            {<button className="btn-add tooltip" type="button" onClick={(ev) => { setType(ev, 'add') }}> <img src="./assets/img/icons/plus.png" alt="Image" /><span className="tooltiptext">Add</span> </button>}
+            {<button className="btn-todo tooltip" type="button" onClick={(ev) => { setType(ev, 'todo') }}> <img src="./assets/img/icons/list.png" alt="Image" /><span className="tooltiptext">Todo</span> </button>}
         </form>}
 
         {selected === 'video' && <form method="post" encType="multipart/form-data" onSubmit={(ev) => onSaveNote(ev, noteToAdd, file, noteToAdd.url, videoRef)}>
@@ -68,10 +69,11 @@ export function NoteAdd({ notes, onAddNotes, onSaveNote }) {
                 ref={videoRef}
             />
 
-            {<button className="btn-txt tooltip" type="button" onClick={(ev) => { setType(ev, 'text') }}> <img src="./assets/img/icons/icons-notes/title_FILL0_wght400_GRAD0_opsz48.svg" alt="Text" /> <span className="tooltiptext">Text</span> </button>}
-            {<button className="btn-video tooltip" type="button" onClick={(ev) => { setType(ev, 'video') }}> <img src="./assets/img/icons/icons-notes/play_circle_FILL0_wght500_GRAD0_opsz48.svg" alt="Video" /> <span className="tooltiptext">Video</span></button>}
-            {<button className="btn-img tooltip" type="button" onClick={(ev) => { setType(ev, 'img') }}> <img src="./assets/img/icons/icons-notes/asset 11.svg" alt="Image" /><span className="tooltiptext">Image</span> </button>}
-
+            {<button className="btn-txt tooltip" type="button" onClick={(ev) => { setType(ev, 'text') }}> <img src="./assets/img/icons/abc.png" alt="Text" /> <span className="tooltiptext">Text</span> </button>}
+            {<button className="btn-video tooltip" type="button" onClick={(ev) => { setType(ev, 'video') }}> <img src="./assets/img/icons/youtube.png" alt="Video" /> <span className="tooltiptext">Video</span></button>}
+            {<button className="btn-img tooltip" type="button" onClick={(ev) => { setType(ev, 'img') }}> <img src="./assets/img/icons/picture.png" alt="Image" /><span className="tooltiptext">Image</span> </button>}
+            {<button className="btn-add tooltip" type="button" onClick={(ev) => { setType(ev, 'add') }}> <img src="./assets/img/icons/plus.png" alt="Image" /><span className="tooltiptext">Add</span> </button>}
+            {<button className="btn-todo tooltip" type="button" onClick={(ev) => { setType(ev, 'todo') }}> <img src="./assets/img/icons/list.png" alt="Image" /><span className="tooltiptext">Todo</span> </button>}
 
         </form>}
 
@@ -85,10 +87,11 @@ export function NoteAdd({ notes, onAddNotes, onSaveNote }) {
                 ref={imgRef}
 
             />
-            {<button className="btn-txt tooltip" type="button" onClick={(ev) => { setType(ev, 'text') }}> <img src="./assets/img/icons/icons-notes/title_FILL0_wght400_GRAD0_opsz48.svg" alt="Text" /> <span className="tooltiptext">Text</span> </button>}
-            {<button className="btn-video tooltip" type="button" onClick={(ev) => { setType(ev, 'video') }}> <img src="./assets/img/icons/icons-notes/play_circle_FILL0_wght500_GRAD0_opsz48.svg" alt="Video" /> <span className="tooltiptext">Video</span></button>}
-            {<button className="btn-img tooltip" type="button" onClick={(ev) => { setType(ev, 'img') }}> <img src="./assets/img/icons/icons-notes/asset 11.svg" alt="Image" /><span className="tooltiptext">Image</span> </button>}
-            <button className="btn-add tooltip" title="Add">Add</button>
+            {<button className="btn-txt tooltip" type="button" onClick={(ev) => { setType(ev, 'text') }}> <img src="./assets/img/icons/abc.png" alt="Text" /> <span className="tooltiptext">Text</span> </button>}
+            {<button className="btn-video tooltip" type="button" onClick={(ev) => { setType(ev, 'video') }}> <img src="./assets/img/icons/youtube.png" alt="Video" /> <span className="tooltiptext">Video</span></button>}
+            {<button className="btn-img tooltip" type="button" onClick={(ev) => { setType(ev, 'img') }}> <img src="./assets/img/icons/picture.png" alt="Image" /><span className="tooltiptext">Image</span> </button>}
+            {<button className="btn-add tooltip" type="button" onClick={(ev) => { setType(ev, 'add') }}> <img src="./assets/img/icons/plus.png" alt="Image" /><span className="tooltiptext">Add</span> </button>}
+            {<button className="btn-todo tooltip" type="button" onClick={(ev) => { setType(ev, 'todo') }}> <img src="./assets/img/icons/list.png" alt="Image" /><span className="tooltiptext">Todo</span> </button>}
 
         </form>}
 

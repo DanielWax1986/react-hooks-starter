@@ -46,6 +46,10 @@
 }
 
 .note-add .btn-add {
+    right: 178px;
+}
+
+.note-add .btn-todo {
     right: 140px;
 }
 

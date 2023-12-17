@@ -14,16 +14,18 @@ export function Home() {
   const handleSquareClick = (color) => {
     setBackgroundColor(color);
     setAsideVisible(false);
-
     localStorageService.saveToStorage("PAGE_COLOR", color);
   };
 
   return (
     <section className="home" style={{ backgroundColor: backgroundColor }}>
-      <h1>Choose your theme page color!</h1>
+      <img className="logo animate__animated animate__fadeIn animate__slower" src="assets/img/logo/logo875.png" alt="" />
+
+
+      <h2>Choose your theme page color!</h2>
 
       <button onClick={changeBgcTheme}>
-        <i className="fa-solid fa-gear"></i>
+        <img className="icon-btn" src="assets/img/icons/colorpicker.png" alt="" />
       </button>
 
       <aside style={{ display: isAsideVisible ? "block" : "none" }}>
@@ -51,3 +53,7 @@ export function Home() {
     </section>
   );
 }
+
+
+
+

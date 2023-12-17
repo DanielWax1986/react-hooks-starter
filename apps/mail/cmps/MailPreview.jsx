@@ -54,7 +54,7 @@ export function MailPreview({ email, onRemoveMail, setIsComposeShown }) {
           name="isRead"
         />
         <button onClick={setImportant} className="star-btn">
-          <i className={isImportant}></i>
+        <i className={`fa ${isImportant} fa-star`} style={{ color: isImportant === "fa-solid fa-star" ? 'gold' : 'black' }}></i>
         </button>
         {email.from}
       </td>

@@ -72,7 +72,7 @@ export function EmailFolderList({ setEmails }) {
         <span>Draft</span>
       </button> */}
       <button onClick={starredFolder}>
-        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star" ></i>
         <span>Starred</span>
       </button>
       <button onClick={trashFolder}>

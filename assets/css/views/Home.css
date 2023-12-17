@@ -1,25 +1,29 @@
-/* home */
-
 .home {
-  background-color: #f9f9f9
-  ; 
-  padding: 40px;
+  width: 85vw;
+  margin-inline-start: 5%;
+  margin-inline-end: 5%;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.home h1 {
-  color: #333;
-  font-size: 2em;
-  margin-bottom: 20px;
+.logo {
+  text-align: center;
+  margin-inline-start: 5%;
+  margin-inline-end: 5%;
+  max-width: 600px;
+  z-index: 0;
 }
 
-.home button {
-  border: none;
-  background-color: transparent;
-  margin-top: 20px;
-  padding: 10px;
+.app-links {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+}
+
+.app-links img {
+  width: 100px;
+  height: auto;
 }
 
 .home i {
@@ -56,3 +60,15 @@
 #square4 {
   background-color: #d2daff;
 }
+
+@media (max-width: 500px) {
+  .app-links {
+    flex-direction: column;
+    gap: 75px;
+  }
+}
+
+
+
+
+

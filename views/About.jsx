@@ -4,7 +4,7 @@ export function About() {
       <section className="about-page">
           <div className="about">
               <h2>
-                  Welcome to <span className="logo">Appsus!</span>
+                  Welcome to <span className="logo">Appsus</span> 
               </h2>
               <br />
               <h4>

@@ -67,7 +67,7 @@ export function NotePreview({ note, onRemoveNote, onSaveNote, onEditNote }) {
         </div>}
         <div className="hidden-buttons">
             <form className="tooltip" onChange={changeColor}>
-                <label htmlFor={`color-${note.id}`}><img src="./assets/img/icons/icons-notes/asset 22.svg" alt="" /><span className="tooltiptext">Color</span></label>
+                <label htmlFor={`color-${note.id}`}><img src="./assets/img/icons/colorpicker.png" alt="" /><span className="tooltiptext">Color</span></label>
                 <input type="color"
                     name="style"
                     id={`color-${note.id}`}
@@ -76,7 +76,7 @@ export function NotePreview({ note, onRemoveNote, onSaveNote, onEditNote }) {
 
                 />
             </form>
-            <button className="tooltip" onClick={() => onRemoveNote(note.id)}><img src="./assets/img/icons/icons-notes/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="" /><span className="tooltiptext">Delete</span></button>
+            <button className="tooltip" onClick={() => onRemoveNote(note.id)}><img src="./assets/img/icons/Trash-can.png" alt="" /><span className="tooltiptext">Delete</span></button>
         </div>
 
     </article>

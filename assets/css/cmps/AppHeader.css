@@ -20,6 +20,7 @@ header {
   margin-inline-start: 25px;
   width: 35px;
   flex-grow: 1;
+  cursor: pointer;
 }
 
 .app-menu-icon {
