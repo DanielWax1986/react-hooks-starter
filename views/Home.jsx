@@ -19,7 +19,7 @@ export function Home() {
 
   return (
     <section className="home" style={{ backgroundColor: backgroundColor }}>
-      <img className="logo animate__animated animate__fadeIn animate__slower" src="assets/img/logo/logo875.png" alt="" />
+      <img className="logo animate__animated animate__fadeIn animate__slower" src="assets/img/logo/logo500.png" alt="" />
 
 
       <h2>Choose your theme page color!</h2>
